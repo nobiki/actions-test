@@ -1,12 +1,13 @@
-name: run sl
+name: hello sl
 on: push
 
 jobs:
   build:
     name: Greeting
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     steps:
-      run: |
-        sudo apt update
-        sudo apt install -y sl
-        sl
+      - name: run sl
+        run: |
+          sudo apt update
+          sudo apt install -y sl
+          sl
