@@ -6,5 +6,7 @@ jobs:
     name: Greeting
     runs-on: debian-latest
     steps:
-      - run: apt update
-      
+      - run: |
+        sudo apt update
+        sudo apt install -y sl
+        sl
