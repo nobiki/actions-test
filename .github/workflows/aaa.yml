@@ -1,0 +1,10 @@
+name: Hello, World!
+on: push
+
+jobs:
+  build:
+    name: Greeting
+    runs-on: debian-latest
+    steps:
+      - run: apt update
+      
