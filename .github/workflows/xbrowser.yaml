@@ -11,6 +11,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - run: yarn add selenium-webdriver
       - run: yarn install
       - run: nuget install Selenium.WebDriver.IEDriver -Version 3.150.0
       - run: node scratch.js
