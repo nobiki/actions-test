@@ -1,6 +1,9 @@
-name: xbrowser-python
+name: xbrowser-python-ie
 
-on: [push]
+on:
+  push:
+    branches:
+      - ie
 
 jobs:
   e2e-ie:
