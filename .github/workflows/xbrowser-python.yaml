@@ -1,4 +1,4 @@
-name: xbrowser
+name: xbrowser-python
 
 on: [push]
 
@@ -13,6 +13,7 @@ jobs:
           python-version: "3.x"
       - run: pip install selenium==3.141.0
       - run: nuget install Selenium.WebDriver.IEDriver -Version 3.150.0
+      - run: ls -la
       - run: python hello.py
         env:
           BROWSER: ie

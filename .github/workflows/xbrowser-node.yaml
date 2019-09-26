@@ -1,4 +1,4 @@
-name: xbrowser
+name: xbrowser-node
 
 on: [push]
 
