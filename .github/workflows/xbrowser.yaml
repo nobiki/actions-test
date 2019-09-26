@@ -20,9 +20,11 @@ jobs:
   e2e-safari:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - run: yarn add selenium-webdriver
       - run: yarn install
       - name: Run safari driver
         run: |
