@@ -1,0 +1,13 @@
+version: '2.3'
+
+services:
+
+  actions-example:
+    container_name: actions-example
+    hostname: actions-example
+    image: actions-example
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
