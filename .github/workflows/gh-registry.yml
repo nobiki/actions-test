@@ -13,6 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: einaregilsson/build-number@v1
 
     - name: Build Image
       run: |
