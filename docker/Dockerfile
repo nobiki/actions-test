@@ -1,3 +1,4 @@
 FROM nginx:latest
 
-RUN echo 'Build from Github Actions. Build Number:'${BUILD_NUMBER} > /usr/share/nginx/html/index.html
+RUN echo "Build from Github Actions. Generate: "$(date "+%Y/%m/%d %H:%M:%S") > /usr/share/nginx/html/index.html
+
