@@ -18,7 +18,8 @@ jobs:
       run: |
         cd docker/ && make build && cd ../
 
-    - name: Push Image
+    - name: Push to Github Package Registry
       run: |
+        docker login docker.pkg.github.com -u nobiki -p ${{ secrets.GH_ACCESS_TOKEN }}
         docker tag actions-example docker.pkg.github.com/nobiki/repo/actions-example:latest
         docker push docker.pkg.github.com/nobiki/repo/actions-example:latest
