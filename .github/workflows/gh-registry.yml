@@ -17,5 +17,8 @@ jobs:
     - name: Build Image
       run: |
         cd docker/ && make build && cd ../
+
+    - name: Push Image
+      run: |
         docker tag actions-example docker.pkg.github.com/nobiki/repo/actions-example:latest
         docker push docker.pkg.github.com/nobiki/repo/actions-example:latest
