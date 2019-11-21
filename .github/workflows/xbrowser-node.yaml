@@ -1,6 +1,9 @@
 name: xbrowser-node
 
-on: [push]
+on:
+  push:
+    branches:
+      - ie
 
 jobs:
   e2e-ie:
