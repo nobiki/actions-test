@@ -11,4 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: './.github/actions/jisaku-actions'
-      - run: wait-for-it localhost:4444 -t 60
+
+      - name: tesuto
+        run: |
+            docker run --rm nobiki/wait-for-it localhost:4444 -t 30
