@@ -1,0 +1,14 @@
+name: jisaku-actions
+
+on:
+  push:
+    branches:
+      - jisaku-actions
+
+jobs:
+  hoge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: .github/actions/jisaku-actions.yml
+      - run: wait-for-it
