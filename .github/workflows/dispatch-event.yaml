@@ -2,10 +2,7 @@ name: repository dispatch event sample
 
 on:
   repository_dispatch:
-    types: [build]
-  push:
-    branches:
-      - dispatch-event
+    types: [any-keyword]
 
 jobs:
   hoge:
