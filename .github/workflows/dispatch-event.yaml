@@ -1,0 +1,16 @@
+name: repository dispatch event sample
+
+on:
+  repository_dispatch:
+    types: [build]
+  push:
+    branches:
+      - dispatch-event
+
+jobs:
+  hoge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: .github/actions/jisaku-actions.yml
+      - run: echo "exec repository dispatch event."
