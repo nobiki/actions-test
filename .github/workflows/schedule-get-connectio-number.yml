@@ -2,7 +2,7 @@ name: Schedule - Get Connection Number
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/2 * * * *'
 
 jobs:
   schedule-get-connection-number:
