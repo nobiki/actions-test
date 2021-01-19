@@ -1,13 +1,16 @@
-name: Schedule - Get Connection Number
-
+name: Experiment
 on:
   schedule:
-    - cron: '*/2 * * * *'
+  - cron: '*/5 * * * *'
 
 jobs:
-  schedule-get-connection-number:
+  job1:
+    name: Debug
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Git checkout
+      uses: actions/checkout@v2
+      with: { ref: debug }
+    - name: List files
+      run: ls
