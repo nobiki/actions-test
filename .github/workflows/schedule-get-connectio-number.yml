@@ -15,5 +15,5 @@ jobs:
       run: ls
 
     - name: Create a repository dispatch event to trigger workflow
-        run: |
-          curl https://example.com
+      run: |
+        curl https://example.com
