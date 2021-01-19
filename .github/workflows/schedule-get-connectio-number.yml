@@ -1,6 +1,6 @@
 name: Experiment
 on:
-  schedules:
+  schedule:
   - cron: '*/1 * * * *'
 
 jobs:
