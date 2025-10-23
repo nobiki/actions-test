@@ -1,4 +1,4 @@
-name: Auto Merge Back (main -> develop)
+name: Auto Merge Back (master -> develop)
 
 on:
   push:
@@ -6,28 +6,43 @@ on:
       - master
 
 jobs:
-  merge_back_to_develop:
+  merge_back:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
+      contents: write  # pushに必要
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout master
         uses: actions/checkout@v4
-
-      - name: Create Merge back PR (main -> develop)
-        uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: develop
-          branch: merge-back/main-to-develop
-          commit-message: 'chore: Merge back release changes from main'
-          title: 'Merge Back (main -> develop)'
-          body: |
-            ## マージバックPR
-            リリースされた変更（mainブランチ）をdevelopブランチにフィードバックするための自動PRです。
-            developブランチで後続の開発を始める前に、このPRをレビューし、developへマージしてください。
-            ---
-            *Created by GitHub Actions*
+          fetch-depth: 0
+
+      - name: Set up git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge master -> develop
+        run: |
+          git fetch origin develop
+          git checkout develop
+
+          # masterをdevelopにマージ
+          set +e
+          git merge origin/master --no-edit
+          merge_result=$?
+          set -e
+
+          if [ $merge_result -ne 0 ]; then
+            echo "::error::Merge conflict detected. Please resolve manually."
+            exit 1
+          fi
+
+          # 変更があればpush
+          if git diff --quiet; then
+            echo "No changes to push. develop is up to date."
+          else
+            git push origin develop
+            echo "Merged master into develop and pushed."
+          fi
 

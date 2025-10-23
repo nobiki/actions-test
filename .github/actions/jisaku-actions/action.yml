@@ -1,0 +1,9 @@
+name: 'custom actions test'
+description: '自作actionsのテスト'
+author: Naoaki Obiki <obiki.wk+actions-test@gmail.com>
+branding:
+  icon: 'box'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'hello-world'
