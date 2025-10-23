@@ -3,7 +3,7 @@ name: Build Dockerfile and Push Github Package Registry
 on:
   push:
     branches:
-      - develop
+      - aaa
 
 jobs:
   build-and-push:
