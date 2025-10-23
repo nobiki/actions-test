@@ -45,4 +45,3 @@ jobs:
             git push origin develop
             echo "Merged master into develop and pushed."
           fi
-
