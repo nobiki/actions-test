@@ -3,7 +3,7 @@ name: Auto Merge Back (main -> develop)
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   merge_back_to_develop:
