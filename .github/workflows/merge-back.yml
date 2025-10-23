@@ -1,0 +1,33 @@
+name: Auto Merge Back (main -> develop)
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  merge_back_to_develop:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create Merge back PR (main -> develop)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: develop
+          branch: merge-back/main-to-develop
+          commit-message: 'chore: Merge back release changes from main'
+          title: 'Merge Back (main -> develop)'
+          body: |
+            ## マージバックPR
+            リリースされた変更（mainブランチ）をdevelopブランチにフィードバックするための自動PRです。
+            developブランチで後続の開発を始める前に、このPRをレビューし、developへマージしてください。
+            ---
+            *Created by GitHub Actions*
+
